@@ -3,10 +3,7 @@ import { Modal, Button } from "react-bootstrap";
 
 const SongInfo = ({ song }) => {
   const [showModal, setShowModal] = useState(false);
-  /*function durationFormat ()
-    {
-        song.duration = //pretvroba u min:sek
-    }*/
+ 
 
   let duration = new Date(song.duration * 1000).toISOString().substring(14, 19);
   const modal = (
