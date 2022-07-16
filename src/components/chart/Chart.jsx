@@ -5,10 +5,7 @@ import { cloneDeep } from "lodash";
 import "./chart.css";
 
 const Chart = () => {
-  const [appTracks, setAppTracks] = useState([]); // varijablu (const) smo napravili koja će držati stanje naše//appTracks-sadrzi nase početno stanje, a setAppTrack-sdrži stanje koje se mijenja
-  //dohvatili smo podatke s api.dezera 1.korak
-
-  // umisto component didMOunt bolje useEffect 2.korak
+  const [appTracks, setAppTracks] = useState([]); 
   useEffect(() => {
     axios
       .get(" https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart")
@@ -21,7 +18,7 @@ const Chart = () => {
   const [sortValue, setSortValue] = useState("select");
 
   const sorter = (stringValue) => {
-    let sortCopy = cloneDeep(appTracks); //varijabla je. a setAppTracks JE FUNKCIJA !!!!!!
+    let sortCopy = cloneDeep(appTracks); 
     switch (stringValue) {
       case "ascending":
         sortCopy.sort((itemA, itemB) => {
@@ -44,8 +41,8 @@ const Chart = () => {
     setSortValue(e.target.value);
   };
   useEffect(() => {
-    sorter(sortValue); //funkcija
-  }, [sortValue]); //dependecy
+    sorter(sortValue); 
+  }, [sortValue]); 
 
   return (
     <div className="d-flex flex-column align-items-center">
